@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>New Tweets Page</h1>
+
+    <p>Please fill out the form below to add new tweets to the database:</p>
+
+
+    <form action="/tweets/create" method="POST">
+
+        <label>Tweet:</label>
+        <input type="text" name="tweets.tweet" placeholder="Tweet XYZ" value="Tweet XYZ">
+
+        <label>Twitter Handle:</label>
+        <select name="twitter_handle">
+          <option handle="H1">Handle 1</option>
+          <option handle="H2">Handle 2</option>
+        </select>
+
+        <button>Submit</button>
+    </form>
+
+
+</body>
+</html>

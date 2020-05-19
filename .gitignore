@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Dev Ignores
+migrations
+twitter_flask_app_db.db
