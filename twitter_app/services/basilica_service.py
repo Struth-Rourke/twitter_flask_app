@@ -9,8 +9,8 @@ load_dotenv()
 BASILICA_API_KEY = os.getenv("BASILICA_API_KEY")
 
 # Making an API connection and printing the type 
-bacilica_API_conn = Connection(BASILICA_API_KEY)
-print(type(bacilica_API_conn)) #> <class 'basilica.Connection'>
+basilica_conn = Connection(BASILICA_API_KEY)
+print(type(basilica_conn)) #> <class 'basilica.Connection'>
 
 
 ## Basilica Function

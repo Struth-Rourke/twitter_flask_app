@@ -1,10 +1,13 @@
 # web_app/routes/stats_routes.py
 
+# flask
 from flask import Blueprint, request, jsonify, render_template
-
-from sklearn.linear_model import LogisticRegression # for example
-from twitter_app.services.basilica_service import basilica_API_conn
-from twitter_app.models import User, Tweets
+# SKLearn: Logistic Regression Model 
+from sklearn.linear_model import LogisticRegression
+# Basilica API Connection (Object / Method)
+from twitter_app.services.basilica_service import basilica_conn
+# Tweets and User (Classes)
+from twitter_app.models import Tweets, User
 
 
 stats_routes = Blueprint("stats_routes", __name__)
@@ -25,9 +28,9 @@ def predict():
 
     # "SELECT * FROM users WHERE screen_name = {screen_name_a}"
 
-    user_a = User.query.filter_by(screen_name == screen_name_a).one()
-    user_b = User.query.filter_by(screen_name == screen_name_b).one()
-    user_a_tweets = user_a.tweets
+    user_a = User.query.filter(User.screen_name == screen_name_a).one()
+    user_b = User.query.filter(User.screen_name == screen_name_b).one()
+    user_a_tweets = user_a.tweets # TWeets.query.filter_by(user_id,)
     user_b_tweets = user_b.tweets
     #user_a_embeddings = [tweet.embedding for tweet in user_a_tweets]
     #user_b_embeddings = [tweet.embedding for tweet in user_b_tweets]
@@ -59,9 +62,9 @@ def predict():
     # result_b = classifier.predict([user_b_tweets[0].embedding])
 
 
-    basilica_api = basilica_API_conn
+    basilica_api = basilica_conn
     
-    example_embedding = basilica_api.embed_sentence(tweet_text)
+    example_embedding = basilica_api.embed_sentence(tweet_text, model="twitter")
     
     result = classifier.predict([example_embedding])
     #breakpoint()

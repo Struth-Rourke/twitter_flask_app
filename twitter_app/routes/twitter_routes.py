@@ -3,7 +3,7 @@
 # Importing necessary packages and dependencies from other areas of the directory
 from flask import Blueprint, render_template, jsonify, request
 from twitter_app.services.twitter_service import api as twitter_api
-from twitter_app.services.basilica_service import bacilica_API_conn
+from twitter_app.services.basilica_service import basilica_conn
 from twitter_app.models import Tweets, User, db
 from pprint import pprint
 
@@ -19,11 +19,13 @@ def get_user(screen_name=None):
     # Getting the twitter user, via twitter_api w/ "get_user" method
     twitter_user = twitter_api.get_user(screen_name)
     # Getting the users timeline w/ "user_timeline" method
-    statuses = twitter_api.user_timeline(screen_name, tweet_mode="extended", 
-                                         count=150, exclude_replies=True, 
-                                         include_rts=False)
+    # statuses = twitter_api.user_timeline(screen_name, tweet_mode="extended", 
+    #                                      count=150, exclude_replies=True, 
+    #                                      include_rts=False)
 
-
+    statuses = twitter_api.user_timeline(screen_name,
+                                         tweet_mode="extended",
+                                         count=150)
     # get existing user from the db or initialize a new one:
     db_user = User.query.get(twitter_user.id) or User(id=twitter_user.id)
     db_user.screen_name = twitter_user.screen_name
@@ -34,7 +36,7 @@ def get_user(screen_name=None):
     db.session.commit()
     
     
-    basilica_api = bacilica_API_conn
+    basilica_api = basilica_conn
 
 
     all_tweet_texts = [status.full_text for status in statuses]
@@ -63,3 +65,4 @@ def get_user(screen_name=None):
     return "OK"
     #return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets
     
+
