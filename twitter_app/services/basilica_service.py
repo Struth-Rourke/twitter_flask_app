@@ -8,28 +8,31 @@ load_dotenv()
 # API_KEY stored in .env
 BASILICA_API_KEY = os.getenv("BASILICA_API_KEY")
 
-# Defining a function that makes a connection and prints the type 
-def basilica_api_client():
-    connection = Connection(BASILICA_API_KEY)
-    print(type(connection)) #> <class 'basilica.Connection'>
-    return connection
-
-# Sentences
-sentences = [
-    "This is a sentence!",
-    "This is a similar sentence!",
-    "I don't think this sentence is very similar at all...",
-]
-
-# Embeddings 
-embeddings = list(connection.embed_sentences(sentences))
-for embed in embeddings:
-    print("-----")
-    print(embed)
+# Making an API connection and printing the type 
+bacilica_API_conn = Connection(BASILICA_API_KEY)
+print(type(bacilica_API_conn)) #> <class 'basilica.Connection'>
 
 
+## Basilica Function
+# def basilica_api_client():
+#     connection = basilica.Connection(API_KEY)
+#     print(type(connection)) #> <class 'basilica.Connection'>
+#     return connection
 
+# if __name__ == "__main__":
 
+    # # Sentences
+    # sentences = [
+    #     "This is a sentence!",
+    #     "This is a similar sentence!",
+    #     "I don't think this sentence is very similar at all...",
+    # ]
+
+    # # Embeddings 
+    # embeddings = list(conn.embed_sentences(sentences))
+    # for embed in embeddings:
+    #     print("-----")
+    #     print(embed)
 
 
 # if __name__ == "__main__":
@@ -49,4 +52,4 @@ for embed in embeddings:
 #     embeddings = connection.embed_sentences(sentences)
 #     print("EMBEDDINGS...")
 #     print(type(embeddings))
-#     print(list(embeddings)) # [[0.8556405305862427, ...], ...]
+#     print(list(embeddings))

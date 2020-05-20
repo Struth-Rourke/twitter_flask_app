@@ -1,10 +1,14 @@
 # twitter_app/__init__.py
 
+# Importing Flask that allows you to make the app
 from flask import Flask
 
+# Importing necessary classes, packages, , routes, etc.
 from twitter_app.models import db, migrate
 from twitter_app.routes.home_routes import home_routes
 from twitter_app.routes.tweet_routes import tweet_routes
+from twitter_app.routes.twitter_routes import twitter_routes
+
 
 # DataBase File Path
 DATABASE_URI = "sqlite:///twitter_flask_app_db.db" # using relative filepath
@@ -13,6 +17,7 @@ DATABASE_URI = "sqlite:///twitter_flask_app_db.db" # using relative filepath
 
 # Instiailizing the app inside of a function
 def create_app():
+    # Instantiating Flask App
     app = Flask(__name__)
 
     # Configures the DataBase
@@ -25,7 +30,9 @@ def create_app():
     # Registering the blueprints for the different app routes
     app.register_blueprint(home_routes)
     app.register_blueprint(tweet_routes)
+    app.register_blueprint(twitter_routes)
     
+    # Returning / Running Flask App
     return app
 
 

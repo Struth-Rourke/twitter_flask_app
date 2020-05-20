@@ -42,7 +42,7 @@ def create_tweets():
     print("FORM DATA:", dict(request.form))
 
     # Creating a "new_tweet" instance 
-    new_tweet = Tweets(tweet=request.form["tweets.tweet"], 
+    new_tweet = Tweets(full_text=request.form["Tweets.full_text"], 
                        twitter_handle=request.form["twitter_handle"])
     # Adding the "new_tweet" instance to the DataBase
     db.session.add(new_tweet)
