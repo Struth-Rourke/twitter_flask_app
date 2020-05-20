@@ -8,6 +8,7 @@ from twitter_app.models import db, migrate
 from twitter_app.routes.home_routes import home_routes
 from twitter_app.routes.tweet_routes import tweet_routes
 from twitter_app.routes.twitter_routes import twitter_routes
+from twitter_app.routes.stats_routes import stats_routes
 
 
 # DataBase File Path
@@ -31,6 +32,7 @@ def create_app():
     app.register_blueprint(home_routes)
     app.register_blueprint(tweet_routes)
     app.register_blueprint(twitter_routes)
+    app.register_blueprint(stats_routes)
     
     # Returning / Running Flask App
     return app
