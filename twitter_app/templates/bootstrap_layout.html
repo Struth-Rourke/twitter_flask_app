@@ -31,7 +31,8 @@
     <!-- see: https://jinja.palletsprojects.com/en/2.11.x/tricks/ -->
     <!-- see: https://getbootstrap.com/docs/4.0/components/navbar/ -->
     {% set nav_links = [
-      ('/tweets', 'books', 'Tweets'),
+      ('/tweets', 'tweets', 'Tweets'),
+      ('/test_users', 'users', 'Twitter Users'),
       ('/tweets/new', 'new_tweets', 'New Tweets')
     ] -%}
     {% set active_page = active_page|default('index') -%}

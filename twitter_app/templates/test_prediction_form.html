@@ -1,0 +1,40 @@
+<!-- twitter_app/templates/prediction_form.html -->
+
+
+{% extends "bootstrap_layout.html" %}
+
+
+{% block content %}
+    
+
+    <h2>Prediction Time</h2>
+
+    <p>Use the form below to predict which user is more likely to say a given tweet...</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Twitter User A:</label>
+        <select name="screen_name_a">
+            <option value="wolfejosh" selected="true">@wolfejosh</option>
+            <option value="paulg">@paulg</option>
+            <option value="rourke_robert_">@rourke_robert_</option>
+        </select>
+        <br>
+
+        <label>Twitter User B:</label>
+        <select name="screen_name_b">
+            <option value="wolfejosh">@wolfejosh</option>
+            <option value="paulg" selected="true">@paulg</option>
+            <option value="rourke_robert_">@rourke_robert_</option>
+          </select>
+        <br>
+
+        <label>Tweet Text:</label>
+        <input type="text" name="tweet_text" placeholder="Tesla Model S production facility is great" value="Tesla Model S production facility is great">
+        <br>
+
+        <button>Submit</button>
+    </form>
+
+
+{% endblock %}

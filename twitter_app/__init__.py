@@ -9,7 +9,7 @@ from twitter_app.routes.home_routes import home_routes
 from twitter_app.routes.tweet_routes import tweet_routes
 from twitter_app.routes.twitter_routes import twitter_routes
 from twitter_app.routes.stats_routes import stats_routes
-
+from twitter_app.routes.test_routes import test_routes
 
 # Creating DataBase name in the current directory -- using relative filepath
 DATABASE_URI = "sqlite:///twitter_flask_app_db.db"
@@ -33,6 +33,7 @@ def create_app():
     app.register_blueprint(tweet_routes)
     app.register_blueprint(twitter_routes)
     app.register_blueprint(stats_routes)
+    app.register_blueprint(test_routes)
     
     # Returning / Running Flask App
     return app
