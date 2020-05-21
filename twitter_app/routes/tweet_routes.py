@@ -1,23 +1,10 @@
 # twitter_app/routes/tweet_routes.py
 
 from flask import Blueprint, jsonify, request, render_template, flash, redirect
-
 from twitter_app.models import Tweets, db
 
-tweet_routes = Blueprint("tweet_routes", __name__)
 
-@tweet_routes.route("/tweets.json")
-@tweet_routes.route("/tweets_endpoint")
-def list_tweets():
-    tweets = [
-        {"id": 1, "tweet": "Hello World 1"},
-        {"id": 1, "tweet": "Hello World 2"},
-        {"id": 1, "tweet": "Hello World 3"},
-        {"id": 2, "tweet": "Hello World 1"},
-        {"id": 2, "tweet": "Hello World 2"},
-        {"id": 2, "tweet": "Hello World 3"}
-    ]
-    return jsonify(tweets)
+tweet_routes = Blueprint("tweet_routes", __name__)
 
 
 @tweet_routes.route("/tweets")

@@ -1,14 +1,10 @@
 <!-- twitter_app/templates/prediction_form.html -->
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "bootstrap_layout.html" %}
+
+
+{% block content %}
     
 
     <h2>Prediction Time</h2>
@@ -19,7 +15,7 @@
 
         <label>Twitter User A:</label>
         <select name="screen_name_a">
-            <option value="wolfejosh" selected="true">@ewolfejosh</option>
+            <option value="wolfejosh" selected="true">@wolfejosh</option>
             <option value="paulg">@paulg</option>
             <option value="rourke_robert_">@rourke_robert_</option>
         </select>
@@ -38,7 +34,7 @@
         <br>
 
         <button>Submit</button>
+    </form>
 
 
-</body>
-</html>
+{% endblock %}
