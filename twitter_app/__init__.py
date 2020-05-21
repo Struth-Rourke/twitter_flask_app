@@ -2,7 +2,7 @@
 
 import os
 from dotenv import load_dotenv
-load_env()
+load_dotenv()
 
 # Importing Flask that allows you to make the app
 from flask import Flask
@@ -14,6 +14,7 @@ from twitter_app.routes.tweet_routes import tweet_routes
 from twitter_app.routes.twitter_routes import twitter_routes
 from twitter_app.routes.stats_routes import stats_routes
 from twitter_app.routes.test_routes import test_routes
+
 
 # Creating DataBase name in the current directory -- using relative filepath
 DATABASE_URI = os.getenv("DATABASE_URL")
