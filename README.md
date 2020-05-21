@@ -17,3 +17,7 @@
 #> creates the specified tables
 # FLASK_APP=twitter_app flask db upgrade 
 
+
+# Heroku App Name:
+# twitter-prediction-flask-app
+# https://twitter-prediction-flask-app.herokuapp.com/ 
